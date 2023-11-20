@@ -23,34 +23,20 @@ function github_repo_cards_shortcode($atts) {
     }
 
     $repos = json_decode(wp_remote_retrieve_body($response), true);
-    var_dump($repos[0]);
 
     // Output GitHub repositories as cards
-    $output = '<div class="github-repo-cards">';    
+    $output = '<div id="github-repo-cards">';    
     foreach ($repos as $repo) {
-        $output .= "<div class='card'>";
-            $output .= "<div class='header_card'>";
-                $output .= "<img src=" . "" . " alt='card title'>";
-            $output .= "</div>";
-            $output .= "<div class='body_card'>";
-                $output .= "<div class='card_content'>";
-                    $output .= '<h1>' . $repo['name'] . '</h1>';
-                    $output .= '<p>' . $repo['description'] . '</p>';
-                        $output .= "<div class='container_infos'>";
-                            $output .= "<div class='postedBy'>";
-                            $output .= "<span><u>Author:</u></span> ";
-                            $output .= "<i>" . $username . "</i>";
-                            $output .= "</div>";
-                            $output .= "<div class='container_tags'>";
-                                $output .= "<span><u>Status:</u></span> ";
-                                $output .= ($repo['private'] ? 'Private' : 'Public');
-                            $output .= "</div>";
-                        $output .= "</div>";
-                    $output .= "</div>";
+        $output .= "<div id='grid__item'>";
+            $output .= "<div id='card'>";
+                $output .= "<img id='card__img' src='https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80' alt='Snowy Mountains'>";
+                $output .= "<div id='card__content'>";
+                    $output .= "<h1 id='card__header'>" .  $repo['name'] . "</h1>";
+                    $output .= "<p id='card__text'>" . $repo['description'] . "</p>";
+                    $output .= "<a href='" . $repo['html_url'] . "' id='card__btn'>See more <span>&rarr;</span></a>";
                 $output .= "</div>";
             $output .= "</div>";
-            //$output .= '<a href="' . $repo['html_url'] . '" target="_blank">View on GitHub</a>';
-        $output .= '</div>';
+        $output .= "</div>";
     }
 
 
