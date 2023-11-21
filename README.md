@@ -5,3 +5,5 @@ Wordpress extension to show your projects in a nice table of cards
 To add the plugin into your WordPress activate it, add a shortcode in your page as following:
 
 [github_repo_cards username="yourgithubusername"]
+
+To add a background to your cards, add a background.jpg file to the root of your repo and it will be used.

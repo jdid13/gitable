@@ -14,6 +14,9 @@ function github_repo_cards_shortcode($atts) {
         return 'Please provide a GitHub username.';
     }
 
+    // Sanitize user input for the username
+    $username = htmlspecialchars($username);
+
     // Fetch GitHub repositories
     $api_url = "https://api.github.com/users/{$username}/repos";
     $response = wp_remote_get($api_url);
@@ -23,13 +26,17 @@ function github_repo_cards_shortcode($atts) {
     }
 
     $repos = json_decode(wp_remote_retrieve_body($response), true);
+    
 
     // Output GitHub repositories as cards
     $output = '<div id="github-repo-cards">';    
     foreach ($repos as $repo) {
+        $img = 'https://i.postimg.cc/NfRBTsdb/code.jpg';
+        $placeholder = "this.onerror=null; this.src = '$img';";
+
         $output .= "<div id='grid__item'>";
             $output .= "<div id='card'>";
-                $output .= "<img id='card__img' src='https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80' alt='Snowy Mountains'>";
+                $output .= "<img id='card__img' src='https://raw.githubusercontent.com/naben0/" . $repo['name'] ."/main/background.jpg' onerror=\"$placeholder\">";
                 $output .= "<div id='card__content'>";
                     $output .= "<h1 id='card__header'>" .  $repo['name'] . "</h1>";
                     $output .= "<p id='card__text'>" . $repo['description'] . "</p>";

@@ -1,21 +1,21 @@
-  /* VARIABLES */
-  :root {
-    --color-header: #0d0d0d;
-    --color-text: #404040;
-    --color-btn-text: #3363ff;
-    --color-btn-background: #e6ecff;
-    --transition: 0.2s;
-  }
+/* VARIABLES */
+:root {
+  --color-header: #0d0d0d;
+  --color-text: #404040;
+  --color-btn-text: #FF7F49;
+  --color-btn-background: #FFCBA4;
+  --transition: 0.2s;
+}
 
-  #github-repo-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+#github-repo-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
-  #grid__item {
+#grid__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Set flex-direction to column to stack child elements vertically */
     background-color: #fff;
     border-radius: 0.4rem;
     overflow: hidden;
@@ -24,47 +24,42 @@
     transition: var(--transition);
     margin: 2rem;
     max-width: 300px;
-  }
-  
-  #grid__item:hover {
-    transform: translateY(-0.5%);
-    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
-  }
-  
-  #card__img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  #card__content {
-    padding: 1.5rem;
-    flex-grow: 1;
+}
+
+#card {
+    display: flex;
+    flex-direction: column; /* Set flex-direction to column to stack child elements vertically */
+    height: 100%; /* Make #card take all available height */
+}
+
+#card__content {
+    flex-grow: 1; /* Allow #card__content to grow and take up all available space */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  
-  #card__header {
+    padding: 1.5rem;
+    height: 100%;
+}
+
+#card__header {
     font-size: 2rem;
     font-weight: 500;
     text-align: center;
     color: var(--color-header);
-  }
-  
-  #card__text {
+    margin-bottom: 1rem; /* Add some margin to separate header from other content */
+}
+
+#card__text {
     font-size: 1rem;
     letter-spacing: 0.1rem;
     line-height: 1.7;
     color: darken(var(--color-text), 1%);
-    margin-bottom: 2.5rem;
-    flex-flow: wrap;
-  }
-  
-  #card__btn {
+    margin-bottom: 1rem;
+}
+
+#card__btn {
     display: block;
-    width: 100%;
+    width: auto;
     padding: 0.75rem;
     font-size: 1rem;
     text-align: center;
