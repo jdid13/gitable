@@ -36,7 +36,7 @@ function github_repo_cards_shortcode($atts) {
 
         $output .= "<div id='grid__item'>";
             $output .= "<div id='card'>";
-                $output .= "<img id='card__img' src='https://raw.githubusercontent.com/naben0/" . $repo['name'] ."/main/background.jpg' onerror=\"$placeholder\">";
+                $output .= "<img id='card__img' src='https://raw.githubusercontent.com/naben0/" . $repo['name'] ."/main/gitable-background.jpg' onerror=\"$placeholder\">";
                 $output .= "<div id='card__content'>";
                     $output .= "<h1 id='card__header'>" .  $repo['name'] . "</h1>";
                     $output .= "<p id='card__text'>" . $repo['description'] . "</p>";
