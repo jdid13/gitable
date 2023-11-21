@@ -26,6 +26,11 @@
     max-width: 300px;
 }
 
+#grid__item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+}
+
 #card {
     display: flex;
     flex-direction: column; /* Set flex-direction to column to stack child elements vertically */
