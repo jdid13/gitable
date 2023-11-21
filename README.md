@@ -9,4 +9,4 @@ To add the plugin into your WordPress activate it, add a shortcode in your page 
 
 To add a background to your cards, add a `gitablebackground.jpg` file to the root of your repo and it will be used.
 
-![Screenshot of the project tree with the background file](https://i.postimg.cc/6QBptw8D/capture.png)
+![Screenshot of the project tree with the background file](https://i.postimg.cc/qq8Qd8hc/capture.png)
