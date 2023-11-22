@@ -27,6 +27,19 @@ function github_repo_cards_shortcode($atts) {
 
     $repos = json_decode(wp_remote_retrieve_body($response), true);
     
+    function truncateString($inputString, $maxSize = 97) {
+        // Check if the input string is longer than the maximum size
+        if (strlen($inputString) > $maxSize) {
+            // Find the last space within the maximum size limit
+            $lastSpace = strrpos(substr($inputString, 0, $maxSize), ' ');
+            // Truncate the string at the last space
+            $truncatedString = substr($inputString, 0, $lastSpace);
+            $result = $truncatedString . '...';
+    
+            return $result;
+        }
+        return $inputString;
+    }    
 
     // Output GitHub repositories as cards
     $output = '<div id="github-repo-cards">';    
@@ -39,7 +52,7 @@ function github_repo_cards_shortcode($atts) {
                 $output .= "<img id='card__img' src='https://raw.githubusercontent.com/naben0/" . $repo['name'] ."/main/gitable-background.jpg' onerror=\"$placeholder\">";
                 $output .= "<div id='card__content'>";
                     $output .= "<h1 id='card__header'>" .  $repo['name'] . "</h1>";
-                    $output .= "<p id='card__text'>" . $repo['description'] . "</p>";
+                    $output .= "<p id='card__text'>" . truncateString($repo['description']) . "</p>";
                     $output .= "<a href='" . $repo['html_url'] . "' id='card__btn'>See more <span>&rarr;</span></a>";
                 $output .= "</div>";
             $output .= "</div>";
